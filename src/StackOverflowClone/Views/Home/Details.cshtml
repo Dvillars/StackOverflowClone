@@ -1,0 +1,32 @@
+﻿@{ 
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model StackOverflowClone.Models.Post
+
+
+<h1>@Model.Title</h1>
+<h2>@Model.Author | @Model.Date</h2>
+<p>@Model.Body</p>
+
+@foreach(var comment in Model.Comments)
+{
+    <h3>@comment.Body</h3>
+}
+
+
+
+<!--NEEDS TYPE OF COMMENT TO BE INITIATED-->
+@if(User.Identity.IsAuthenticated)
+{
+    @using (Html.BeginForm("Create", "Comments", FormMethod.Post))
+    {
+        @Html.LabelFor(m => m.body)
+        @Html.TextBoxFor(m => m.body)
+
+        @Html.HiddenFor(Model => Model.PostId);
+
+        <input type="submit" value="Register" />
+    }
+}

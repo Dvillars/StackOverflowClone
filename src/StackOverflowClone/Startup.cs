@@ -56,7 +56,7 @@ namespace StackOverflowClone
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Account}/{action=Index}/{id?}"); //Change to "Account" controller
+                    template: "{controller=Home}/{action=Index}/{id?}"); //Change to "Account" controller
             });
 
             app.UseStaticFiles();

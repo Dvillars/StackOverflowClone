@@ -41,6 +41,7 @@ namespace StackOverflowClone.Controllers
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
             post.User = currentUser;
+            post.Author = currentUser.UserName;
             post.Rating = 0;
             post.Date = new DateTime();
             _db.Posts.Add(post);
