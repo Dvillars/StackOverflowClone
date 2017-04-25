@@ -15,7 +15,22 @@
     <h3>@comment.Body</h3>
 }
 
+<hr />
+
+@if (User.Identity.IsAuthenticated)
+{
+    @using (Html.BeginForm("Create", "Comment", FormMethod.Post))
+    {
+        <input id="PostId" name="PostId" type="hidden" value="@Model.PostId" />
+
+        <label for="Body">Text:</label>
+        <input id="Body" name="Body" type="text" />
 
 
-@Html.ActionLink("New Comment", "Create", "Comment", new { id = Model.PostId })
-
+        <input type="submit" value="Register" />
+    }
+}
+else
+{
+    <h2>Please log in to comment!</h2>
+}

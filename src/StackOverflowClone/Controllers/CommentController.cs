@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using StackOverflowClone.Models;
 using Microsoft.AspNetCore.Identity;
-
+using Microsoft.EntityFrameworkCore;
 
 namespace StackOverflowClone.Controllers
 {
@@ -36,10 +36,10 @@ namespace StackOverflowClone.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(int PostId, string body)
+        public async Task<IActionResult> Create(int PostId, string Body)
         {
             var comment = new Comment();
-            comment.Body = body;
+            comment.Body = Body;
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
             comment.Post = _db.Posts
@@ -50,7 +50,8 @@ namespace StackOverflowClone.Controllers
             comment.Date = new DateTime();
             _db.Comments.Add(comment);
             _db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+
+            return RedirectToAction("Details", "Home", new { id = PostId });
         }
     }
 }

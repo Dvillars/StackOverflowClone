@@ -6,7 +6,10 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <h1>Stack Overflow Clone</h1>
+    <nav>
+        <h1>@Html.ActionLink("Stack Overflow Clone", "Index", "Home")</h1>
+        @Html.Partial("UserInfo.cshtml")
+    </nav>
     <div>
         @RenderBody()
     </div>
