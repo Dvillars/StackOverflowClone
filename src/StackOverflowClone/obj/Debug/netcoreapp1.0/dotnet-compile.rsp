@@ -209,10 +209,13 @@ c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\S
 c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\Controllers\PostController.cs
 c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\Migrations\20170425211328_intiial.cs
 c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\Migrations\20170425211328_intiial.Designer.cs
+c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\Migrations\20170425233203_addratings.cs
+c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\Migrations\20170425233203_addratings.Designer.cs
 c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\Migrations\StackOverflowContextModelSnapshot.cs
 c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\Models\ApplicationUser.cs
 c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\Models\Comment.cs
 c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\Models\Post.cs
+c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\Models\Rating.cs
 c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\Models\StackOverflowContext.cs
 c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\ViewModels\LoginViewModel.cs
 c:\users\epicodus\documents\visual studio 2015\Projects\StackOverflowClone\src\StackOverflowClone\ViewModels\RegisterViewModel.cs

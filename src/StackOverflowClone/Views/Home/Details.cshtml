@@ -10,7 +10,7 @@
 <h2>Rating: @Model.Rating</h2>
 <h2>@Model.Author | @Model.Date</h2>
 <p>@Model.Body</p>
-@Html.ActionLink("UpVfdgkh ", "Upvote", "Posts", new { id = Model.PostId })
+@Html.ActionLink("UpVote", "Upvote", "Posts", new { id = Model.PostId })
 @Html.ActionLink("DownVote", "DownVote", "Posts", new { id = Model.PostId })
 
 @foreach(var comment in Model.Comments)

@@ -77,20 +77,64 @@ namespace StackOverflowClone.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult UpVote(int id)
+        public async Task<IActionResult> UpVote(int id, int userId)
         {
             var thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
-            thisPost.Rating++;
-            _db.SaveChanges();
-            return RedirectToAction("Details", "Home", new { id = thisPost.PostId });
+            var foundId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(foundId);
+
+            var currentRating = _db.Ratings.Where(rating => rating.UserId == userId).Where(rating => rating.PostId == id).FirstOrDefault();
+
+            if(currentRating != null)
+            {
+                if (!currentRating.Upvote)
+                {
+                    currentRating.Upvote = true;
+                    thisPost.Rating += 2;
+                }
+                return RedirectToAction("Details", "Home", new { id = thisPost.PostId });
+            } else
+            {
+                var newRating = new Rating();
+                newRating.UserId = userId;
+                newRating.PostId = id;
+                newRating.Upvote = true;
+                _db.Ratings.Add(newRating);
+                thisPost.Rating++;
+                _db.SaveChanges();
+                return RedirectToAction("Details", "Home", new { id = thisPost.PostId });
+            }
+
         }
 
-        public IActionResult DownVote(int id)
+        public async Task<IActionResult> DownVote(int id, int userId)
         {
             var thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
-            thisPost.Rating--;
-            _db.SaveChanges();
-            return RedirectToAction("Details", "Home", new { id = thisPost.PostId });
+            var foundId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var currentUser = await _userManager.FindByIdAsync(foundId);
+
+            var currentRating = _db.Ratings.Where(rating => rating.UserId == userId).Where(rating => rating.PostId == id).FirstOrDefault();
+
+            if (currentRating != null)
+            {
+                if(currentRating.Upvote)
+                {
+                    currentRating.Upvote = false;
+                    thisPost.Rating -= 2;
+                }
+                return RedirectToAction("Details", "Home", new { id = thisPost.PostId });
+            }
+            else
+            {
+                var newRating = new Rating();
+                newRating.UserId = userId;
+                newRating.PostId = id;
+                newRating.Upvote = false;
+                _db.Ratings.Add(newRating);
+                thisPost.Rating--;
+                _db.SaveChanges();
+                return RedirectToAction("Details", "Home", new { id = thisPost.PostId });
+            }
         }
     }
 }

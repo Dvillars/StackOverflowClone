@@ -8,9 +8,10 @@ using StackOverflowClone;
 namespace StackOverflowClone.Migrations
 {
     [DbContext(typeof(StackOverflowContext))]
-    partial class StackOverflowContextModelSnapshot : ModelSnapshot
+    [Migration("20170425233203_addratings")]
+    partial class addratings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
