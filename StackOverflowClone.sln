@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DB924A51-505D-46BF-9B9E-C241406A5DAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{64A6DC13-77A9-4514-8769-0ACC898FBD69}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "StackOverflowClone", "src\StackOverflowClone\StackOverflowClone.xproj", "{4B59A992-9E64-4E5A-BF27-E292875DCC9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B59A992-9E64-4E5A-BF27-E292875DCC9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B59A992-9E64-4E5A-BF27-E292875DCC9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B59A992-9E64-4E5A-BF27-E292875DCC9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B59A992-9E64-4E5A-BF27-E292875DCC9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4B59A992-9E64-4E5A-BF27-E292875DCC9F} = {DB924A51-505D-46BF-9B9E-C241406A5DAD}
+	EndGlobalSection
+EndGlobal
