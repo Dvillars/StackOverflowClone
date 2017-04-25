@@ -16,17 +16,5 @@
 }
 
 
+@Html.Partial("CreateComment", new { id = Model.PostId } )
 
-<!--NEEDS TYPE OF COMMENT TO BE INITIATED-->
-@if(User.Identity.IsAuthenticated)
-{
-    @using (Html.BeginForm("Create", "Comments", FormMethod.Post))
-    {
-        @Html.LabelFor(m => m.body)
-        @Html.TextBoxFor(m => m.body)
-
-        @Html.HiddenFor(Model => Model.PostId);
-
-        <input type="submit" value="Register" />
-    }
-}

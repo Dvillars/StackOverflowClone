@@ -1,0 +1,22 @@
+﻿@{ 
+    ViewData["Title"] = "New Comment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    @using (Html.BeginForm("Create", "Comments", FormMethod.Post))
+    {
+        @Html.HiddenFor(m => ViewBag.PostId)
+
+        @Html.LabelFor(m => m.Body)
+        @Html.TextBoxFor(m => m.Body)
+
+
+        <input type="submit" value="Register" />
+    }
+}
+else
+{
+    <h2>Please log in to comment!</h2>
+}
