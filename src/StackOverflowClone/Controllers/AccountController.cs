@@ -26,7 +26,7 @@ namespace StackOverflowClone.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Register()
@@ -41,11 +41,11 @@ namespace StackOverflowClone.Controllers
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Posts");
             }
             else
             {
-                return View();
+                return RedirectToAction("Index", "Home");
             }
         }
 
@@ -60,11 +60,11 @@ namespace StackOverflowClone.Controllers
             Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
             if(result.Succeeded)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Posts");
             }
             else
             {
-                return View();
+                return RedirectToAction("Index", "Home");
             }
         }
         //Logout

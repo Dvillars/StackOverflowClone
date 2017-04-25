@@ -9,5 +9,5 @@
 
 @foreach (var post in Model)
 {
-    @Html.ActionLink(post.Title, "Details", "Home", new { id = post.PostId })
+    <p>@Html.ActionLink(post.Title, "Details", "Home", new { id = post.PostId })</p>
 }

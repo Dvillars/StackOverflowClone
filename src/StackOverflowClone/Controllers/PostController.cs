@@ -76,5 +76,21 @@ namespace StackOverflowClone.Controllers
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult UpVote(int id)
+        {
+            var thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
+            thisPost.Rating++;
+            _db.SaveChanges();
+            return RedirectToAction("Details", "Home", new { id = thisPost.PostId });
+        }
+
+        public IActionResult DownVote(int id)
+        {
+            var thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
+            thisPost.Rating--;
+            _db.SaveChanges();
+            return RedirectToAction("Details", "Home", new { id = thisPost.PostId });
+        }
     }
 }

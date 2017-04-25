@@ -14,5 +14,5 @@ a:hover {
 }
 
 input, button, textarea, .btn, .form-button {
-    color: black !important;
+    color: black;
 }
