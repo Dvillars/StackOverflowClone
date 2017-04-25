@@ -3,11 +3,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@model StackOverflowClone.Models.Comment
+
 @if (User.Identity.IsAuthenticated)
 {
-    @using (Html.BeginForm("Create", "Comments", FormMethod.Post))
+    @using (Html.BeginForm("Create", "Comment", FormMethod.Post))
     {
-        @Html.HiddenFor(m => ViewBag.PostId)
+        <input id="PostId" name="PostId" type="hidden" value="@ViewBag.PostId" />
 
         @Html.LabelFor(m => m.Body)
         @Html.TextBoxFor(m => m.Body)

@@ -8,8 +8,8 @@ using StackOverflowClone;
 namespace StackOverflowClone.Migrations
 {
     [DbContext(typeof(StackOverflowContext))]
-    [Migration("20170425170050_users")]
-    partial class users
+    [Migration("20170425211328_intiial")]
+    partial class intiial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -188,9 +188,13 @@ namespace StackOverflowClone.Migrations
 
                     b.Property<int>("Rating");
 
+                    b.Property<string>("UserId");
+
                     b.HasKey("CommentId");
 
                     b.HasIndex("PostId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Comments");
                 });
@@ -208,7 +212,13 @@ namespace StackOverflowClone.Migrations
 
                     b.Property<int>("Rating");
 
+                    b.Property<string>("Title");
+
+                    b.Property<string>("UserId");
+
                     b.HasKey("PostId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Posts");
                 });
@@ -255,6 +265,17 @@ namespace StackOverflowClone.Migrations
                     b.HasOne("StackOverflowClone.Models.Post", "Post")
                         .WithMany("Comments")
                         .HasForeignKey("PostId");
+
+                    b.HasOne("StackOverflowClone.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("StackOverflowClone.Models.Post", b =>
+                {
+                    b.HasOne("StackOverflowClone.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
         }
     }

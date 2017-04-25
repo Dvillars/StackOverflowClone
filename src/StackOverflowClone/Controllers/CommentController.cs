@@ -28,15 +28,22 @@ namespace StackOverflowClone.Controllers
             return View();
         }
 
+        public IActionResult Create(int id)
+        {
+            ViewBag.PostId = id;
+            Console.WriteLine(ViewBag.PostId);
+            return View();
+        }
+
         [HttpPost]
-        public async Task<IActionResult> Create(string body, int id)
+        public async Task<IActionResult> Create(int PostId, string body)
         {
             var comment = new Comment();
             comment.Body = body;
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var currentUser = await _userManager.FindByIdAsync(userId);
             comment.Post = _db.Posts
-                .FirstOrDefault(posts => posts.PostId == id);
+                .FirstOrDefault(posts => posts.PostId == PostId);
             comment.User = currentUser;
             comment.Author = currentUser.UserName;
             comment.Rating = 0;

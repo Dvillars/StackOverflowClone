@@ -16,5 +16,6 @@
 }
 
 
-@Html.Partial("CreateComment", new { id = Model.PostId } )
+
+@Html.ActionLink("New Comment", "Create", "Comment", new { id = Model.PostId })
 
