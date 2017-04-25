@@ -1,11 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using StackOverflowClone.Models;
 
 namespace StackOverflowClone
 {
-    internal class StackOverflowContext : DbContext
+    public class StackOverflowContext : IdentityDbContext<ApplicationUser>
     {
         public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
@@ -26,4 +28,5 @@ namespace StackOverflowClone
             base.OnModelCreating(builder);
         }
     }
+
 }

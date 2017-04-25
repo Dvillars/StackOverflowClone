@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "New Post";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model StackOverflowClone.Models.Post
+
+
+<h2>New Post</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Title)
+    @Html.EditorFor(model => model.Title)
+
+    @Html.LabelFor(model => model.Body)
+    @Html.EditorFor(model => model.Body)
+
+    <input type="submit" value="Create" />
+}
+
+
+@Html.ActionLink("Cancel", "Index")
