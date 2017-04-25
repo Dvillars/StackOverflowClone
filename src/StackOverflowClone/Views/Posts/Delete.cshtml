@@ -1,0 +1,16 @@
+﻿@{ 
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model StackOverflowClone.Models.Post
+<div class="delete-tile">
+
+    <h2>Are you sure you want to delete @Model.Title?</h2>
+
+    @using (Html.BeginForm())
+    {
+        <input type="submit" value="Yes" class="btn form-button" />
+    }
+    <button class="btn form-button">@Html.ActionLink("No", "Index", "Posts")</button>
+</div>

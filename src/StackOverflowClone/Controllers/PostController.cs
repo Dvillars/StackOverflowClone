@@ -49,37 +49,32 @@ namespace StackOverflowClone.Controllers
             return RedirectToAction("Index");
         }
 
-        //public IActionResult Details(int id)
-        //{
-        //    var thisPost = db.Posts
-        //        .FirstOrDefault(posts => posts.PostId == id);
-        //    return View();
-        //}
 
-        //public IActionResult Edit(int id)
-        //{
-        //    var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
-        //    return View(thisPost);
-        //}
-        //[HttpPost]
-        //public IActionResult Edit(Post Post)
-        //{
-        //    db.Entry(Post).State = EntityState.Modified;
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-        //public ActionResult Delete(int id)
-        //{
-        //    var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
-        //    return View(thisPost);
-        //}
-        //[HttpPost, ActionName("Delete")]
-        //public IActionResult DeleteConfirmed(int id)
-        //{
-        //    var thisPost = db.Posts.FirstOrDefault(posts => posts.PostId == id);
-        //    db.Posts.Remove(thisPost);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        public IActionResult Edit(int id)
+        {
+            var thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
+            return View(thisPost);
+        }
+        [HttpPost]
+        public IActionResult Edit(Post Post)
+        {
+            _db.Entry(Post).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
+            return View(thisPost);
+        }
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
+            _db.Posts.Remove(thisPost);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,0 +1,18 @@
+﻿body {
+    background-color: darkslategray;
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+    opacity: .8;
+}
+
+input, button, textarea, .btn, .form-button {
+    color: black !important;
+}

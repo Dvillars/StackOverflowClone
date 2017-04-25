@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Edit @Model.Title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model StackOverflowClone.Models.Post
+
+
+<h2>Editing Post @Model.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.PostId)
+
+    @Html.LabelFor(model => model.Title)
+    @Html.EditorFor(model => model.Title)
+
+    @Html.LabelFor(model => model.Body)
+    @Html.EditorFor(model => model.Body)
+
+    <input type="submit" value="Submit" />
+}
+
+
+@Html.ActionLink("Cancel", "Index")
